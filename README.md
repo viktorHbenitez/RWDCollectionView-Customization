@@ -2,6 +2,24 @@
 
 ![imagen](../master/Sketch/ScreenFlow.gif)
 
+## Subclassing Collection view layout
+animation add or delete cell  
+
+```swift
+
+class FlowLayout: UICollectionViewFlowLayout {
+
+  ...
+
+  // For Adding Cells:
+  override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {}
+
+  // For removing Cells:
+  override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {}
+
+}
+```
+
 ## Enhance section headers
 1. Create a new instance of Section for each section  
 2. Update sectionHeader to use the section object  
@@ -14,9 +32,7 @@
   // custom header view cell
   class SectionHeader: UICollectionReusableView {}
 
-
   class MainViewController: UICollectionViewController {
-  
   ...
   
     // Multiple sections

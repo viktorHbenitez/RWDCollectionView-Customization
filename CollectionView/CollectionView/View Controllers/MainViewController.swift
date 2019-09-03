@@ -58,8 +58,16 @@ class MainViewController: UICollectionViewController {
 	}
 	
 	@IBAction func addItem() {
-		let index = dataSource.indexPathForNewRandomPark()
-		collectionView?.insertItems(at: [index])
+    let index = dataSource.indexPathForNewRandomPark()
+    if let layout = collectionView?.collectionViewLayout as? FlowLayout{
+      layout.addedItem = index
+      UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.65, initialSpringVelocity: 0.0, options: [], animations: {
+        self.collectionView?.insertItems(at: [index])
+        
+      }) { finished in
+        layout.addedItem = nil
+      }
+    }
 	}
 	
 	@objc func refresh() {
