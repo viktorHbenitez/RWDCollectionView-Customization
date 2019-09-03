@@ -22,6 +22,7 @@ class MainViewController: UICollectionViewController {
 		navigationController?.isToolbarHidden = true
 		// Edit
 		navigationItem.leftBarButtonItem = editButtonItem
+    installsStandardGestureForInteractiveMovement = true
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -139,6 +140,12 @@ extension MainViewController {
     }
     
     return UICollectionReusableView()
+    
+  }
+  
+  override func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    
+    dataSource.moveParkAtIndexPath(sourceIndexPath, toIndexPath: destinationIndexPath)
     
   }
   

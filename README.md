@@ -2,6 +2,23 @@
 
 ![imagen](../master/Sketch/ScreenFlow.gif)
 
+
+## Moving cells  
+
+```swift
+
+override func viewDidLoad() {
+		super.viewDidLoad()
+	...
+    installsStandardGestureForInteractiveMovement = true
+    
+}
+
+override func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {}
+
+
+```
+
 ## Subclassing Collection view layout
 animation add or delete cell  
 
